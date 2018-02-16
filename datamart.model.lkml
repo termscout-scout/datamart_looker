@@ -7,15 +7,22 @@ include: "*.view"
 include: "*.dashboard"
 
 explore: f_daily_src {
-  hidden: yes
+  # hidden: yes
   join:  d_data_source {
     type: inner
     relationship: many_to_one
     sql_on: ${f_daily_src.data_source_id} = ${d_data_source.id} ;;
-   }
+  }
   join: d_data_source_type {
     type: inner
     relationship: many_to_one
     sql_on: ${d_data_source.data_src_type_id} = ${d_data_source_type.id} ;;
-    }
+  }
+}
+explore: f_install_summary {
+  join: d_install {
+    type: inner
+    relationship: many_to_one
+    sql_on: ${f_install_summary.tabkey} = ${d_install.tabkey} ;;
+  }
 }
