@@ -62,8 +62,4 @@ view: d_day {
     sql: ${TABLE}.year_id ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: [id, day_of_wk_name, month_name, quarter_name]
-  }
 }

@@ -2,6 +2,7 @@ view: d_data_source {
   sql_table_name: test.d_data_source ;;
 
   dimension: id {
+    hidden: yes
     primary_key: yes
     type: number
     sql: ${TABLE}.id ;;

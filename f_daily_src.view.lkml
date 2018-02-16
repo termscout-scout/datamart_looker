@@ -22,11 +22,13 @@ view: f_daily_src {
   }
 
   dimension: m_nbr_companies {
+    hidden: yes
     type: number
     sql: ${TABLE}.m_nbr_companies ;;
   }
 
   dimension: m_nbr_contacts {
+    hidden: yes
     type: number
     sql: ${TABLE}.m_nbr_contacts ;;
   }
@@ -34,5 +36,13 @@ view: f_daily_src {
   measure: count {
     type: count
     drill_fields: []
+  }
+  measure: total_companies {
+    type: sum
+    sql: ${m_nbr_companies} ;;
+  }
+  measure: total_contacts {
+    type: sum
+    sql: ${m_nbr_contacts} ;;
   }
 }
